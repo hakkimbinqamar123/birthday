@@ -1,6 +1,6 @@
 // ✏️ EDIT THIS FILE to personalise the website.
 
-export const NAME = "Ayishu";
+export const NAME = "Ayshu";
 export const FROM = "your friend";
 
 // Page 1: hidden treasures. x / y = position on the map in percent (0 to 100).

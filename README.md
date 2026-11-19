@@ -1,4 +1,4 @@
-# Ayishu's Birthday Treasure Hunt (React + Vite)
+# Ayshu's Birthday Treasure Hunt (React + Vite)
 
 ## Run it
     npm install

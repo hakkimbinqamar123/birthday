@@ -58,10 +58,10 @@ function Hearts() {
 
 /* Page 1: treasure map */
 function TreasureMap({ next }) {
-  const [st, setSt] = useState(() => store.get("ayishu-map", null) || { started: false, found: [], digs: [] });
+  const [st, setSt] = useState(() => store.get("ayshu-map", null) || { started: false, found: [], digs: [] });
   const [heatMsg, setHeatMsg] = useState({ t: "Tap anywhere on the island to dig!", c: "#fff4e0" });
   const [reveal, setReveal] = useState(null);
-  const update = (n) => { setSt(n); store.set("ayishu-map", n); };
+  const update = (n) => { setSt(n); store.set("ayshu-map", n); };
   const done = st.found.length === TREASURES.length;
   const left = TREASURES.length - st.found.length;
 
@@ -91,7 +91,7 @@ function TreasureMap({ next }) {
       <main className="wrap">
         <Hearts />
         <div className="card">
-          <h1 className="big">Ayishu’s treasure map 🗺️</h1>
+          <h1 className="big">Ayshu’s treasure map 🗺️</h1>
           <p className="sub">A little island, five hidden treasures and one special chest. Tap the map to dig. The map tells you how close you are: freezing, cool, warm or burning hot.</p>
           <button onClick={() => update({ ...st, started: true })}>Begin the hunt</button>
         </div>
@@ -259,7 +259,7 @@ function ScratchPage({ next }) {
 function Finale() {
   const [taps, setTaps] = useState(0), [w, setW] = useState(0);
   const open = taps >= 3;
-  const restart = () => { store.set("ayishu-map", null); store.set("ayishu-page", "map"); location.reload(); };
+  const restart = () => { store.set("ayshu-map", null); store.set("ayshu-page", "map"); location.reload(); };
   return (
     <div className="card">
       <h2 className="big">{open ? `Happy Birthday, ${NAME}!` : "The treasure chest"}</h2>
@@ -273,8 +273,8 @@ function Finale() {
 }
 
 export default function App() {
-  const [page, setPage] = useState(() => store.get("ayishu-page", "map"));
-  const go = (p) => { setPage(p); store.set("ayishu-page", p); window.scrollTo(0, 0); };
+  const [page, setPage] = useState(() => store.get("ayshu-page", "map"));
+  const go = (p) => { setPage(p); store.set("ayshu-page", p); window.scrollTo(0, 0); };
   const next = () => go(PAGES[PAGES.indexOf(page) + 1]);
   if (page === "map") return <TreasureMap next={next} />;
   const Page = { quiz: Quiz, sky: Sky, lantern: Lanterns, scratch: ScratchPage, final: Finale }[page];
